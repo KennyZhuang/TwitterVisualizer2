@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Strings used in app ui-->
+    <string name="app_name">TwitterVisualizer</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello">Hello, </string>
+    <string name="login_instructions">Login to twiter</string>
+    <string name="hint">Tweets show here</string>
+    <string name="btn_login">Login to Twitter</string>
+    <string name="btn_share">Share</string>
+    <string name="btn_search">Search</string>
+    <string name="btn_viewmap">View Emotion Map</string>
+    <string name="btn_wordcloud">View Word Cloud</string>
+    <string name="searchhint">Type keyword here</string>
+
+
+    <!-- Twitter Configurations -->
+    <string name="twitter_callback">https://github.com/KennyZhuang/WEKA-algorithms-implementation</string>
+    <string name="twitter_consumer_key">1fecFfzp5V87oU7wevRJxMqX3</string>
+    <string name="twitter_consumer_secret">595HNZ2TYTmuB6vpv5B7GRj0fV4vZI4cQ6o0lRcsmW72sDafWL</string>
+    <string name="twitter_access_token">357225157-dbPpgs2NnJIpxwFgdBLONqgqNMd9GVP419eIVubT</string>
+    <string name="twitter_token_secret">T7PPnLN7l0Q5D0y1VZNf31MmUGaUNOkAMQC2itMhD3CHc</string>
+    <string name="twitter_oauth_verifier">oauth_verifier</string>
+    <string name="title_activity_search">search</string>
+
+    <string name="Emotion_Chart">Emotion Chart</string>
+    <string name="title_activity_wordcloud">wordcloudActivity</string>
+    <!-- End Configurations -->
+</resources>

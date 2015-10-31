@@ -1,0 +1,59 @@
+
+<html>
+    <head>
+        <title>Emotion Map of Tweets</title>
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+        <!--
+        <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
+        <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
+        -->
+        <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+        <style>
+        #map {
+            height: 500px;
+        }
+        </style>
+    </head>
+    <body>
+	<h1>Emotion Map of Tweets</h1>
+
+        <div id="map"></div>
+<script>
+var mytiles = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+});
+
+var map = L.map('map');
+$.getJSON("/storage/emulated/0/tweetmap.json", function(data) {
+   
+    var EmotionIcon = L.Icon.extend({
+    options: {
+        //shadowUrl: 'leaf-shadow.png',
+        iconSize:     [20, 20],
+        //shadowSize:   [50, 64],
+        iconAnchor:   [22, 94],
+        //shadowAnchor: [4, 62],
+        popupAnchor:  [-3, -76]
+    }
+	});
+	
+	var happyIcon = new EmotionIcon({iconUrl: 'happy.jpg'}),
+    	neutralIcon = new EmotionIcon({iconUrl: 'soso.jpg'}),
+    	sadIcon = new EmotionIcon({iconUrl: 'sad.jpg'});
+   $.each(data, function (opinion, geo) {
+	
+	if (opinion.indexOf("pos") >= 0) {
+	   L.marker(geo, {icon: happyIcon}).addTo(map).bindPopup("Happy");
+	}
+	if (opinion.indexOf("neutral") >= 0) {
+	   L.marker(geo, {icon: neutralIcon}).addTo(map).bindPopup("SoSo");}
+	if (opinion.indexOf("neg") >= 0) {
+	   L.marker(geo, {icon: sadIcon}).addTo(map).bindPopup("Sad");}
+	});
+});
+map.addLayer(mytiles).setView([50.5, -95.0], 2);
+
+        </script>
+    </body>
+</html>
